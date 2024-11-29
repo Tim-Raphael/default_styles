@@ -12,7 +12,9 @@
     --color-primary-h: 200;
     --color-primary-s: 85%;
     --color-primary-l: 55%;
-    --color-primary-hsl: var(--color-primary-h), var(--color-primary-s), var(--color-primary-l);
+    --color-primary-hsl: var(--color-primary-h),
+        var(--color-primary-s),
+        var(--color-primary-l);
     --color-primary: hsl(var(--color-primary-hsl));
     --color-primary-light: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) / 0.75));
     --color-primary-dark: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) * 0.5));
@@ -21,7 +23,9 @@
     --color-secondary-h: 235;
     --color-secondary-s: 65%;
     --color-secondary-l: 35%;
-    --color-secondary-hsl: var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l);
+    --color-secondary-hsl: var(--color-secondary-h),
+        var(--color-secondary-s),
+        var(--color-secondary-l);
     --color-secondary: hsl(var(--color-secondary-hsl));
     --color-secondary-light: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) / 0.75));
     --color-secondary-dark: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) * 0.5));
@@ -30,7 +34,9 @@
     --color-medium-h: 0;
     --color-medium-s: 0%;
     --color-medium-l: 90%;
-    --color-medium-hsl: var(--color-medium-h), var(--color-medium-s), var(--color-medium-l);
+    --color-medium-hsl: var(--color-medium-h),
+        var(--color-medium-s),
+        var(--color-medium-l);
     --color-medium: hsl(var(--color-medium-hsl));
     --color-medium-light: hsl(var(--color-medium-h), var(--color-medium-s), calc(var(--color-medium-l) / 0.95));
     --color-medium-dark: hsl(var(--color-medium-h), var(--color-medium-s), calc(var(--color-medium-l) * 0.5));
@@ -38,26 +44,30 @@
     --color-background-h: 0;
     --color-background-s: 0%;
     --color-background-l: 100%;
-    --color-background-hsl: var(--color-background-h), var(--color-background-s), var(--color-background-l);
+    --color-background-hsl: var(--color-background-h),
+        var(--color-background-s),
+        var(--color-background-l);
     --color-background: hsl(var(--color-background-hsl));
 
     --color-text-h: 0;
     --color-text-s: 0%;
     --color-text-l: 20%;
-    --color-text-hsl: var(--color-text-h), var(--color-text-s), var(--color-text-l);
+    --color-text-hsl: var(--color-text-h),
+        var(--color-text-s),
+        var(--color-text-l);
     --color-text: hsl(var(--color-text-hsl));
 
 
     /* breakpoints */
     /* these don't work there just so you can easily find and replace */
-    --bp-medium: 768px;
+    --bp-medium: 667px;
     --bp-large: 1024px;
 
     /* max-width */
     --max-width: 1440px;
 
     /* nav */
-    --nav-height: 75px;
+    --nav-height: 64px;
 
     @media only screen and (min-width: 1024px) {
         --nav-height: 100px;
@@ -68,7 +78,7 @@
     --space-medium: 25px;
     --space-large: 35px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 667px) {
         --space-small: 25px;
         --space-medium: 50px;
         --space-large: 75px
@@ -98,7 +108,7 @@
     --font-size-h5: 1.24rem;
     --font-size-h6: 1.22rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 667px) {
         --font-size-h1: 4rem;
         --font-size-h2: 3.3rem;
         --font-size-h3: 2.7rem;
@@ -209,20 +219,78 @@ nav #nav-toggle {
 }
 
 nav label[for="nav-toggle"] {
+    width: 2rem;
+    height: 1.5rem;
+    border: none;
+    position: relative;
     cursor: pointer;
+    z-index: 100;
+    display: flex;
+    text-indent: 0;
+    color: transparent;
+    font-size: 0;
+    flex-direction: column;
+    justify-content: space-around;
+    background: transparent;
 
     @media only screen and (min-width: 1024px) {
         display: none;
     }
 }
 
-nav #nav-toggle+ul {
+nav label[for="nav-toggle"]::before,
+nav label[for="nav-toggle"]::after {
+    content: "";
+    width: 100%;
+    border-radius: var(--border-radius-small);
+    height: 3px;
+    position: absolute;
+    left: 0;
+    background-color: var(--color-text);
+    transition: transform var(--transition-medium);
+}
+
+nav label[for="nav-toggle"]::before {
+    top: 0;
+}
+
+nav label[for="nav-toggle"]::after {
+    bottom: 0;
+}
+
+nav label[for="nav-toggle"] span {
+    border-radius: var(--border-radius-small);
+    height: 3px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    background-color: var(--color-text);
+}
+
+nav #nav-toggle:checked~label[for="nav-toggle"]::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+nav #nav-toggle:checked~label[for="nav-toggle"]::after {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+nav #nav-toggle:checked~label[for="nav-toggle"] span {
+    opacity: 0;
+}
+
+nav #nav-toggle~ul {
     position: fixed;
+    display: flex;
     right: 0;
     top: 0;
     bottom: var(--nav-height);
+    flex-direction: column;
+    justify-content: flex-end;
     transform: translateX(100%);
-    background-color: var(--color-medium);
+    background-color: var(--color-medium-light);
     list-style: none;
     transition: transform var(--transition-slow);
 
@@ -232,14 +300,14 @@ nav #nav-toggle+ul {
         right: unset;
         top: unset;
         bottom: unset;
-        display: flex;
+        flex-direction: unset;
         background-color: unset;
         transform: unset;
         flex-wrap: wrap;
     }
 }
 
-nav #nav-toggle+ul::before {
+nav #nav-toggle~ul::before {
     content: "";
     width: 0%;
     height: 100%;
@@ -255,16 +323,28 @@ nav #nav-toggle+ul::before {
     }
 }
 
-nav #nav-toggle+ul a {
+nav #nav-toggle~ul a {
+    border-top: 1px solid var(--color-medium);
     display: block;
-    padding: var(--gap-medium) var(--gap-large);
+    padding: var(--gap-small) var(--gap-medium);
 
     @media only screen and (min-width: 1024px) {
+        border-top: unset;
         padding: unset;
     }
 }
 
-nav #nav-toggle+ul a:active {
+nav #nav-toggle~ul a:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary-dark);
+
+    @media only screen and (min-width: 1024px) {
+        background-color: unset;
+    }
+}
+
+nav #nav-toggle~ul a:active {
+    color: var(--color-background);
     background-color: var(--color-primary);
 
     @media only screen and (min-width: 1024px) {
@@ -272,7 +352,7 @@ nav #nav-toggle+ul a:active {
     }
 }
 
-nav #nav-toggle:checked+ul {
+nav #nav-toggle:checked~ul {
     transform: translateX(0%);
 
     @media only screen and (min-width: 1024px) {
@@ -280,7 +360,7 @@ nav #nav-toggle:checked+ul {
     }
 }
 
-nav #nav-toggle:checked+ul::before {
+nav #nav-toggle:checked~ul::before {
     width: 100vw;
     opacity: 0.5;
 
@@ -397,7 +477,7 @@ h5 span,
 h6 span {
     display: block;
     color: var(--color-medium-dark);
-    font-size: .5em;
+    font-size: max(.5em, var(--base-font-size));
     line-height: 1.5em;
 }
 
@@ -472,7 +552,7 @@ a:active {
 button,
 input[type="submit"] {
     border: none;
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-large);
     box-shadow: var(--elevation-1);
     cursor: pointer;
     background-color: var(--color-primary);
