@@ -8,55 +8,41 @@
 }
 
 :root {
-    /*  color components */
-    --color-primary-h: 200;
-    --color-primary-s: 85%;
-    --color-primary-l: 55%;
-    --color-primary-hsl: var(--color-primary-h),
-        var(--color-primary-s),
-        var(--color-primary-l);
-    --color-primary: hsl(var(--color-primary-hsl));
-    --color-primary-light: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) / 0.75));
-    --color-primary-dark: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) * 0.5));
-    --color-primary-darker: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) * 0.25));
 
-    --color-secondary-h: 235;
-    --color-secondary-s: 65%;
-    --color-secondary-l: 35%;
-    --color-secondary-hsl: var(--color-secondary-h),
-        var(--color-secondary-s),
-        var(--color-secondary-l);
-    --color-secondary: hsl(var(--color-secondary-hsl));
-    --color-secondary-light: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) / 0.75));
-    --color-secondary-dark: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) * 0.5));
-    --color-secondary-darker: hsl(var(--color-secondary-h), var(--color-secondary-s), calc(var(--color-secondary-l) * 0.25));
-
-    --color-medium-h: 0;
-    --color-medium-s: 0%;
-    --color-medium-l: 90%;
-    --color-medium-hsl: var(--color-medium-h),
-        var(--color-medium-s),
-        var(--color-medium-l);
-    --color-medium: hsl(var(--color-medium-hsl));
-    --color-medium-light: hsl(var(--color-medium-h), var(--color-medium-s), calc(var(--color-medium-l) / 0.95));
-    --color-medium-dark: hsl(var(--color-medium-h), var(--color-medium-s), calc(var(--color-medium-l) * 0.5));
-
-    --color-background-h: 0;
-    --color-background-s: 0%;
-    --color-background-l: 100%;
-    --color-background-hsl: var(--color-background-h),
-        var(--color-background-s),
-        var(--color-background-l);
-    --color-background: hsl(var(--color-background-hsl));
-
-    --color-text-h: 0;
-    --color-text-s: 0%;
-    --color-text-l: 20%;
-    --color-text-hsl: var(--color-text-h),
-        var(--color-text-s),
-        var(--color-text-l);
-    --color-text: hsl(var(--color-text-hsl));
-
+    /* Base16 color components - Gruvbox Dark Medium */
+    /* Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox) */
+    /* ---- */
+    --color-base00: #282828;
+    /* --- */
+    --color-base01: #3c3836;
+    /* -- */
+    --color-base02: #504945;
+    /* - */
+    --color-base03: #665c54;
+    /* + */
+    --color-base04: #bdae93;
+    /* ++ */
+    --color-base05: #d5c4a1;
+    /* +++ */
+    --color-base06: #ebdbb2;
+    /* ++++ */
+    --color-base07: #fbf1c7;
+    /* red */
+    --color-base08: #fb4934;
+    /* orange */
+    --color-base09: #fe8019;
+    /* yellow */
+    --color-base0A: #fabd2f;
+    /* green */
+    --color-base0B: #b8bb26;
+    /* aqua/cyan */
+    --color-base0C: #8ec07c;
+    /* blue */
+    --color-base0D: #83a598;
+    /* purple */
+    --color-base0E: #d3869b;
+    /* brown */
+    --color-base0F: #d65d0e;
 
     /* breakpoints */
     /* these don't work there just so you can easily find and replace */
@@ -96,7 +82,7 @@
     --gap-large: 32px;
 
     /* font-sizes */
-    --base-font-size: 16px;
+    --color-base-font-size: 16px;
     --font-size-small: 0.875rem;
     --font-size-medium: 1rem;
     --font-size-large: 1.25rem;
@@ -130,16 +116,6 @@
     --border-radius-small: var(--gap-small);
     --border-radius-medium: var(--gap-medium);
     --border-radius-large: var(--gap-large);
-
-    /* shadows */
-    --elevation-1: 0 1px var(--gap-small) rgba(0, 0, 0, 0.1);
-    --elevation-2: 0 3px var(--gap-medium) rgba(0, 0, 0, 0.2);
-    --elevation-3: 0 9px var(--gap-large) rgba(0, 0, 0, 0.3);
-
-    /* transition */
-    --transition-slow: 500ms ease;
-    --transition-medium: 300ms ease;
-    --transition-fast: 100ms ease;
 }
 
 html {
@@ -147,13 +123,11 @@ html {
 }
 
 ::-moz-selection {
-    background-color: var(--color-primary);
-    color: var(--color-background);
+    background-color: var(--color-base03);
 }
 
 ::selection {
-    background-color: var(--color-primary);
-    color: var(--color-background);
+    background-color: var(--color-base03);
 }
 
 ::-webkit-scrollbar {
@@ -170,17 +144,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text);
+    background: var(--color-base05);
 }
 
 /* body */
 body {
-    font-family: sans-serif;
+    font-family: "JetBrains Mono", monospace;
     line-height: 1.5em;
-    font-size: var(--base-font-size);
+    font-size: var(--color-base-font-size);
     font-weight: 200;
-    background-color: var(--color-background-color);
-    color: var(--color-text-color);
+    background-color: var(--color-base00);
+    color: var(--color-base05);
 }
 
 /* navigation */
@@ -205,7 +179,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-background);
+    background-color: var(--color-base00);
     padding: var(--gap-medium) var(--gap-large);
 
     @media only screen and (min-width: 1024px) {
@@ -246,7 +220,7 @@ nav label[for="nav-toggle"]::after {
     height: 3px;
     position: absolute;
     left: 0;
-    background-color: var(--color-text);
+    background-color: var(--color-base05);
     transition: transform var(--transition-medium);
 }
 
@@ -264,7 +238,7 @@ nav label[for="nav-toggle"] span {
     width: 100%;
     display: block;
     position: absolute;
-    background-color: var(--color-text);
+    background-color: var(--color-base05);
 }
 
 nav #nav-toggle:checked~label[for="nav-toggle"]::before {
@@ -315,7 +289,7 @@ nav #nav-toggle~ul::before {
     right: 100%;
     top: 0%;
     opacity: 0;
-    background-color: var(--color-text);
+    background-color: var(--color-base05);
     transition: opacity var(--transition-medium);
 
     @media only screen and (min-width: 1024px) {
@@ -335,7 +309,7 @@ nav #nav-toggle~ul a {
 }
 
 nav #nav-toggle~ul a:hover {
-    color: var(--color-background);
+    color: var(--color-base00);
     background-color: var(--color-primary-dark);
 
     @media only screen and (min-width: 1024px) {
@@ -344,7 +318,7 @@ nav #nav-toggle~ul a:hover {
 }
 
 nav #nav-toggle~ul a:active {
-    color: var(--color-background);
+    color: var(--color-base00);
     background-color: var(--color-primary);
 
     @media only screen and (min-width: 1024px) {
@@ -421,7 +395,7 @@ aside {
 }
 
 footer {
-    background-color: var(--color-background-color);
+    background-color: var(--color-base00-color);
 }
 
 section {
@@ -477,7 +451,7 @@ h5 span,
 h6 span {
     display: block;
     color: var(--color-medium-dark);
-    font-size: max(.5em, var(--base-font-size));
+    font-size: max(.5em, var(--color-base-font-size));
     line-height: 1.5em;
 }
 
@@ -508,7 +482,7 @@ h6 {
 p {
     display: block;
     font-size: var(--font-size-medium);
-    color: var(--color-text);
+    color: var(--color-base05);
     margin-bottom: var(--gap-medium);
 }
 
@@ -556,7 +530,7 @@ input[type="submit"] {
     box-shadow: var(--elevation-1);
     cursor: pointer;
     background-color: var(--color-primary);
-    color: var(--color-background);
+    color: var(--color-base00);
     padding: var(--gap-small) var(--gap-medium);
     font-size: var(--font-size-medium);
     transition: var(--transition-fast);
