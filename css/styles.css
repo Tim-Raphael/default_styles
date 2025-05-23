@@ -158,7 +158,6 @@ nav::before {
 
 nav:hover::before {
     color: var(--color-base05);
-
 }
 
 nav>ul {
@@ -178,9 +177,22 @@ nav label::before {
     content: "#";
 }
 
-nav li:has(label)::before,
-nav li:first-of-type:has(label)::before,
-nav li:last-of-type:has(label)::before {
+nav ul li {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+nav ul li::before {
+    position: relative;
+    left: 0;
+    transform: none;
+}
+
+nav ul li:has(label)::before,
+nav ul li:first-of-type:has(label)::before,
+nav ul li:last-of-type:has(label)::before {
     content: unset;
 }
 
@@ -271,27 +283,52 @@ article:hover>span:first-of-type {
     color: var(--color-base05);
 }
 
-article>div {}
+article>div {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    position: relative;
+    margin-top: var(--gap-medium);
+    margin-bottom: var(--space-small);
+    padding: var(--gap-medium);
+}
 
 table {
     width: 100%;
-    border: var(--border);
-    border-radius: var(--border-radius);
-    border-spacing: 0;
-    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+    margin-bottom: var(--gap-medium);
+    border-spacing: 2px;
 }
 
 table thead th {
+    border: var(--border);
     font-weight: 700;
-    background-color: var(--color-medium);
     padding: var(--gap-small);
     text-align: left;
 }
 
+table thead tr th:first-of-type {
+    border-radius: var(--border-radius) 0 0 0;
+}
+
+table thead tr th:last-of-type {
+    border-radius: 0 var(--border-radius) 0 0;
+}
+
 table tbody td {
+    border: var(--border);
     font-weight: 200;
     padding: var(--gap-small);
 }
+
+table tbody tr:last-of-type td:first-of-type {
+    border-radius: 0 0 0 var(--border-radius);
+}
+
+table tbody tr:last-of-type td:last-of-type {
+    border-radius: 0 0 var(--border-radius) 0;
+}
+
 
 /* text */
 h1,
