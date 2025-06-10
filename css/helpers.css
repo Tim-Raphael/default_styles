@@ -1,0 +1,18 @@
+/* helper */
+.container {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: var(--gap-medium);
+    background-color: var(--color-base00);
+}
+
+[data-label]::before {
+    content: "/* " attr(data-label) " */";
+    position: absolute;
+    bottom: 100%;
+    transform: translateY(50%);
+    line-height: 1em;
+    padding: 0 var(--gap-small);
+    color: var(--color-base03);
+    background-color: var(--color-base00);
+}

@@ -8,7 +8,6 @@
 }
 
 :root {
-
     /* Base16 color components - Gruvbox Dark Medium */
     /* Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox) */
     /* ---- */
@@ -51,10 +50,6 @@
 
     /* max-width */
     --max-width: 1620px;
-
-    @media only screen and (min-width: 1024px) {
-        --nav-height: 100px;
-    }
 
     /* spaces */
     --space-small: 10px;
@@ -329,7 +324,6 @@ table tbody tr:last-of-type td:last-of-type {
     border-radius: 0 0 var(--border-radius) 0;
 }
 
-
 /* text */
 h1,
 h2,
@@ -494,31 +488,17 @@ a:active {
     text-decoration: none;
 }
 
-
-/* buttons */
-button,
-input[type="submit"] {
+/* input */
+input[type="text"] {
+    width: 100%;
     border: var(--border);
     border-radius: var(--border-radius);
-    box-shadow: var(--elevation-1);
-    cursor: pointer;
-    background-color: var(--color-base0D);
-    color: var(--color-base00);
-    padding: var(--gap-small) var(--gap-medium);
-    font-size: var(--font-size-medium);
-    transition: var(--transition-fast);
-}
-
-button:hover,
-input[type="submit"]:hover,
-button:focus,
-input[type="submit"]:focus {
-    box-shadow: var(--elevation-2);
-    background-color: var(--color-base0C);
-}
-
-button:active,
-input[type="submit"]:active {
-    box-shadow: var(--elevation-2);
-    background-color: var(--color-base0E)
+    display: block;
+    position: relative;
+    padding: var(--gap-small);
+    color: var(--color-base05);
+    font-size: var(--font-base);
+    background-color: var(--color-base01);
+    caret-shape: block;
+    caret-color: var(--color-base05);
 }
