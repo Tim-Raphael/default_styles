@@ -2,17 +2,25 @@
 .container {
     border: var(--border);
     border-radius: var(--border-radius);
+    position: relative;
+    overflow: visible;
     padding: var(--gap-medium);
     background-color: var(--color-base00);
 }
 
-[data-label]::before {
-    content: "/* " attr(data-label) " */";
+.container:hover {
+    border-color: var(--color-base0B);
+}
+
+.container>span:first-of-type {
     position: absolute;
     bottom: 100%;
     transform: translateY(50%);
     line-height: 1em;
     padding: 0 var(--gap-small);
-    color: var(--color-base03);
     background-color: var(--color-base00);
+}
+
+.container:hover>span:first-of-type {
+    color: var(--color-base05);
 }
