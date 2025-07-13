@@ -226,10 +226,13 @@ aside {
 }
 
 footer {
+    width: 100%;
     position: fixed;
     display: flex;
     bottom: 0;
     left: 0;
+    justify-content: space-between;
+    font-size: var(--font-size-small);
 }
 
 footer::before {
@@ -239,6 +242,26 @@ footer::before {
     position: absolute;
     z-index: -1;
     background-color: var(--color-base01);
+}
+
+footer>div {
+    display: flex;
+}
+
+footer>div:first-of-type {
+    padding-left: var(--gap-small);
+}
+
+footer>div:last-of-type {
+    padding-right: var(--gap-small);
+}
+
+footer>div:first-of-type *::before,
+footer>div:last-of-type *::after {
+    content: "|";
+    padding: calc(var(--gap-small)/2);
+    text-decoration: none;
+    color: var(--color-base07);
 }
 
 section {
