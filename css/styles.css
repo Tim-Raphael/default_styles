@@ -423,6 +423,11 @@ ol li:first-of-type::before {
     counter-increment: none;
 }
 
+hr {
+    border: 1px solid var(--color-base03);
+    margin: var(--gap-medium) 0;
+}
+
 /* media */
 img,
 video {
