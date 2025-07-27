@@ -255,12 +255,15 @@ footer > div:last-of-type {
 	padding-right: var(--gap-small);
 }
 
-footer > div:first-of-type *::before,
-footer > div:last-of-type *::after {
+footer > div > div {
+	display: contents;
+}
+
+footer > div:first-of-type > div::before,
+footer > div:last-of-type > div::after {
 	content: "|";
-	padding: calc(var(--gap-small) / 2);
 	text-decoration: none;
-	color: var(--color-base07);
+	color: var(--color-base04);
 }
 
 section {
@@ -280,8 +283,7 @@ article > div {
 	border: var(--border);
 	border-radius: var(--border-radius);
 	position: relative;
-	margin-top: var(--gap-medium);
-	margin-bottom: var(--space-small);
+	margin: var(--gap-small) 0 var(--gap-medium);
 	padding: var(--gap-medium);
 }
 
