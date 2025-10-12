@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumerate}
+\usepackage{hyperref}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Custom commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% Document info
+\title{Assignment Title}
+\author{Firstname Lastname \\ Course Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+
+State the problem here.
+
+\textbf{Solution.} Provide your solution with inline math $x^2 + y^2 = r^2$ or display math:
+\[
+\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+\]
+
+\begin{theorem}
+Every positive integer greater than 1 can be written uniquely as a product of prime numbers.
+\end{theorem}
+
+\begin{proof}
+The proof goes here.
+\end{proof}
+
+Aligned equations:
+\begin{align}
+f(x) &= x^2 + 2x + 1 \\
+     &= (x + 1)^2 \label{eq:example}
+\end{align}
+
+Reference equation \eqref{eq:example} using labels.
+
+\section{Problem 2}
+
+\begin{definition}
+A \textbf{group} is a set $G$ with operation $\cdot$ satisfying associativity, identity, and inverses.
+\end{definition}
+
+\begin{example}
+The integers $\Z$ with addition form a group.
+\end{example}
+
+\end{document}
