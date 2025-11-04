@@ -1,34 +1,50 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass{article}
 
 % Packages
+\usepackage[a4paper]{geometry}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
 \usepackage{enumerate}
-\usepackage{hyperref}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
-\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-% Custom commands
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\C}{\mathbb{C}}
+\theoremstyle{definition}
+\theoremstyle{remark}
+
+% Fancy header
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{\fancyplain{}{Firstname Lastname} }
+\rhead{\fancyplain{}{\today}}
+\cfoot{\fancyplain{}{\thepage}}
+
+% Title format
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\small\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\normalfont\small\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% Set counter
+\setcounter{section}{1}
+
+% Set date
+\date{\today}
 
 % Document info
-\title{Assignment Title}
-\author{Firstname Lastname \\ Course Name}
-\date{\today}
+\title{Title}
+\author{Firstname Lastname \\ Subject}
 
 \begin{document}
 
@@ -64,9 +80,5 @@ Reference equation \eqref{eq:example} using labels.
 \begin{definition}
 A \textbf{group} is a set $G$ with operation $\cdot$ satisfying associativity, identity, and inverses.
 \end{definition}
-
-\begin{example}
-The integers $\Z$ with addition form a group.
-\end{example}
 
 \end{document}
